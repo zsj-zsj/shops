@@ -195,22 +195,22 @@
                             </a>
                         </div>
                         <div class="col s4">
-                            <a href="login.html" class="button-link">
+                            <a href="" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
                                         <i class="fa fa-sign-in"></i>
                                     </div>
-                                    <a href="{{url('http://passport.1906.com/login')}}">登录</a>
+                                    <a href="{{url(env('PASSPORT').'/login')}}">登录</a>
                                 </div>
                             </a>
                         </div>
                         <div class="col s4">
-                            <a href="register.html" class="button-link">
+                            <a href="" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
                                         <i class="fa fa-user-plus"></i>
                                     </div>
-                                    <a href="{{url('http://passport.1906.com/reg')}}">注册</a>
+                                    <a href="{{url(env('PASSPORT').'/reg')}}">注册</a>
                                 </div>
                             </a>
                         </div>

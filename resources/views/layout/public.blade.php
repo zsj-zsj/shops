@@ -1,6 +1,3 @@
-
-
-
 {{-- 刷新转圈 --}}
 <div id="fakeLoader"></div>
 

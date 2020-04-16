@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('title', '商城')
 @section('content')
-@include('layout.center')	
+@include('layout.menu')	
 	<!-- slider -->
 	<div class="slider">
 		

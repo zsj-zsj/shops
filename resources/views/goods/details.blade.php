@@ -1,23 +1,24 @@
 @extends('layout.app')
 @section('title', '商品详情')
 @section('content')
-@include('layout.public')
+@include('layout.menu')
 	<!-- shop single -->
 	<div class="pages section">
 		<div class="container">
 			<div class="shop-single">
-                <img src="http://admin.shop.1906.com/storage/{{$data->goods_img}}" width="50" height="50">
+                <img src="{{env('ADMIN')}}{{$data->goods_img}}" width="50" height="50">
 				<h5>{{$data->goods_name}}</h5>
 				<div class="price">${{$data->goods_price}} <span>$28</span></div>
 				<p>{{$data->goods_desc}}</p>
 				<button type="button" class="btn button-default">加入购物车</button>
+				<a href="{{url('/collect')}}?goods_id={{$data->goods_id}}"  class="btn button-default">收藏</a>
             </div>
 			<div class="review">
 					<h5>1 reviews</h5>
 					<div class="review-details">
 						<div class="row">
 							<div class="col s3">
-								<img src="img/user-comment.jpg" alt="" class="responsive-img">
+								<img src="style/img/user-comment.jpg" alt="" class="responsive-img">
 							</div>
 							<div class="col s9">
 								<div class="review-title">
@@ -57,5 +58,5 @@
 	</div>
 
 
-@include('layout.center')
+@include('layout.public')
 @endsection

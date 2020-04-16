@@ -43,9 +43,13 @@ class IndexController extends Controller
         $cookie=$_COOKIE;
         $uid=isset($cookie['uid']) ? $cookie['uid'] : NULL;
         $goods_id=$request->goods_id;
-        $res=Collect::where('goods_id','=',$goods_id)->first();
+        $where=[
+            'goods_id'=>$goods_id,
+            'id'=>$uid
+        ];
+        $res=Collect::where($where)->first();
         if($res){
-            echo "<script>alert('商品已收藏');location.href='/goodsdetails?id=$goods_id';</script>";
+            echo "<script>alert('您已收藏过次商品，请选个别的商品');location.href='/goodsdetails?id=$goods_id';</script>";
         }else{
             $data=[
                 'id'=>$uid,

@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/','IndexController@indexList'); //展示主页
+Route::get('goodsdetails','IndexController@goodsDetails');  //商品详情

@@ -45,11 +45,12 @@ class IndexController extends Controller
         $goods_id=$request->goods_id;
         $where=[
             'goods_id'=>$goods_id,
-            'id'=>$uid
+            'id'=>$uid,
         ];
         $res=Collect::where($where)->first();
         if($res){
-            echo "<script>alert('您已收藏过次商品，请选个别的商品');location.href='/goodsdetails?id=$goods_id';</script>";
+            Collect::where($where)->update(['id_del'=>1]);
+            echo "<script>alert('已收藏');location.href='/goodsdetails?id=$goods_id';</script>";
         }else{
             $data=[
                 'id'=>$uid,
@@ -58,6 +59,28 @@ class IndexController extends Controller
             Collect::insertGetId($data);
             echo "<script>alert('收藏成功');location.href='/goodsdetails?id=$goods_id';</script>";
         }
+    }
+
+    //我的收藏
+    public function myCollect()
+    {
+        $user=User::userInfo();
+        $where=[
+            'id'=>$user['id'],
+            'id_del'=>1
+        ];
+        $data=Collect::where($where)
+                        ->join('shop_admin_goods','shop_admin_goods.goods_id','=','shop_collect.goods_id')
+                        ->get();
+        return view('index.mycollect',['data'=>$data,'user'=>$user]);
+    }
+
+    //删除我的收藏
+    public function delCollect(Request $request)
+    {
+        $id=$request->id;
+        Collect::where(['collect_id'=>$id])->update(['id_del'=>2]);
+        echo "<script>alert('已取消收藏');location.href='/mycollect';</script>";
     }
 
 }

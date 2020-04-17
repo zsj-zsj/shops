@@ -17,7 +17,6 @@
             <h2>{{$user->name ?? ''}}</h2>
         </li>
         <li><a href="{{url(env('PASSPORT').'/changepass')}}"><i class="fa fa-cog"></i>修改密码</a></li>
-        <li><a href="{{url(env('PASSPORT').'/loginexit')}}"><i class="fa fa-user-plus"></i>退出</a></li>
         <li><a href="{{url('/center')}}"><i class="fa fa-user"></i>个人中心</a></li>
         <li><a href="{{url(env('PASSPORT').'/login')}}"><i class="fa fa-sign-in"></i>登录</a></li>
         <li><a href="{{url(env('PASSPORT').'/reg')}}"><i class="fa fa-user-plus"></i>注册</a></li>

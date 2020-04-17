@@ -35,53 +35,6 @@
 	</div>
 	<!-- end slider -->
 
-	<!-- features -->
-	<div class="features section">
-		<div class="container">
-			<div class="row">
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-car"></i>
-						</div>
-						<h6>Free Shipping</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-dollar"></i>
-						</div>
-						<h6>Money Back</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-			</div>
-			<div class="row margin-bottom-0">
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-lock"></i>
-						</div>
-						<h6>Secure Payment</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-				<div class="col s6">
-					<div class="content">
-						<div class="icon">
-							<i class="fa fa-support"></i>
-						</div>
-						<h6>24/7 Support</h6>
-						<p>Lorem ipsum dolor sit amet consectetur</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end features -->
-
 	<!-- quote -->
 	<div class="section quote">
 		<div class="container">

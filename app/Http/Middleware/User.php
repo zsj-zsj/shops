@@ -23,10 +23,12 @@ class User
         $token=Redis::get($key);
         $uri=env('PASSPORT').'/login';
         if($token != $cotoken){
+            setcookie("token", "", time() - 3600, "/", env('COM'));
+		    setcookie("uid", "", time() - 3600, "/", env('COM'));
             echo "<script>alert('token不对');location.href='$uri';</script>";
         }
         if(!isset($cookie['token'])){
-            echo "<script>alert('请先登录');location.href='$uri';</script>";
+            echo "<script>alert('请先登录');location.href='$uri';</script>";die;
         }
         return $next($request);
     }

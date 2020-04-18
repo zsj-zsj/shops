@@ -48,7 +48,7 @@
 	<div class="section product">
 		<div class="container">
 			<div class="section-head">
-				<h4>TOP PRODUCT</h4>
+				<h4>SHOP</h4>
 				<div class="divider-top"></div>
 				<div class="divider-bottom"></div>
 			</div>

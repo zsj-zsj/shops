@@ -13,7 +13,11 @@
 Route::get('center','IndexController@center')->middleware('user');  //个人中心
 Route::get('/','IndexController@indexList'); //展示主页
 Route::get('goodsdetails','IndexController@goodsDetails');  //商品详情
+Route::get('goodssecrch','IndexController@goodsSecrch');  //商品搜索
 Route::get('collect','IndexController@collect')->middleware('user');  //商品收藏
 Route::get('mycollect','IndexController@myCollect')->middleware('user');  //我的收藏
 Route::get('delcollect','IndexController@delCollect')->middleware('user');  //取消收藏
-
+Route::post('comment','IndexController@comment')->middleware('user');  //商品评论
+Route::get('commentlist','IndexController@commentList');  //商品评论列表
+Route::post('addcart','CartController@addCart');  //加入购物车
+Route::get('cartlist','CartController@cartList')->middleware('user');   //购物车列表

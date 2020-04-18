@@ -5,8 +5,7 @@
 <div class="footer">
     <div class="container">
         <div class="about-us-foot">
-            <h6>商店</h6>
-            <p>is a lorem ipsum dolor sit amet, consectetur adipisicing elit consectetur adipisicing elit.</p>
+            <h6>SHOP</h6>
         </div>
         <div class="social-media">
             <a href=""><i class="fa fa-facebook"></i></a>
@@ -16,7 +15,7 @@
             <a href=""><i class="fa fa-instagram"></i></a>
         </div>
         <div class="copyright">
-            <span>© 2017 All Right Reserved</span>
+            <span>© 3131466642</span>
         </div>
     </div>
 </div>

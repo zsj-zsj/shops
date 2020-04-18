@@ -35,12 +35,11 @@
                 </div>
                 <div class="col s4">
                     <div class="bar-center">
-                        <a href="#animatedModal" id="cart-menu"><i class="fa fa-shopping-basket"></i></a>
-                        <span>2</span>
+                        <a href="{{url('cartlist')}}"><i class="fa fa-shopping-basket"></i></a>
                     </div>
                 </div>
                 <div class="col s2">
-                    <a href="contact.html"><i class="fa fa-envelope-o"></i></a>
+                    <a href=""><i class="fa fa-envelope-o"></i></a>
                 </div>
                 <div class="col s2">
                     <a href="#animatedModal2" id="nav-menu"><i class="fa fa-bars"></i></a>
@@ -62,92 +61,60 @@
                                     <div class="icon">
                                         <i class="fa fa-home"></i>
                                     </div>
-                                    主页
+                                    <a href="{{url('/')}}">主页</a> 
                                 </div>
                             </a>
                         </div>
                         <div class="col s4">
-                            <a href="product-list.html" class="button-link">
+                            <a href="{{url('goodssecrch')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
                                         <i class="fa fa-bars"></i>
                                     </div>
-                                    Product List
+                                    <a href="{{url('goodssecrch')}}">商品页</a>
                                 </div>
                             </a>
                         </div>
-                        <div class="col s4">
-                            <a href="shop-single.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-eye"></i>
-                                    </div>
-                                    Single Shop
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col s4">
                             <a href="{{url('/mycollect')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
                                         <i class="fa fa-heart"></i>
                                     </div>
-                                    我的收藏
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="cart.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </div>
-                                    Cart
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="checkout.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-credit-card"></i>
-                                    </div>
-                                    Checkout
+                                        <a href="{{url('/mycollect')}}">我的收藏</a> 
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <a href="blog.html" class="button-link">	
+                            <a href="{{url('cartlist')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
-                                        <i class="fa fa-bold"></i>
+                                        <i class="fa fa-shopping-cart"></i>
                                     </div>
-                                    Blog
+                                    <a href="{{url('cartlist')}}">购物车</a> 
                                 </div>
                             </a>
                         </div>
                         <div class="col s4">
-                            <a href="blog-single.html" class="button-link">	
+                            <a href="{{url(env('PASSPORT').'/login')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
-                                        <i class="fa fa-file-text-o"></i>
+                                        <i class="fa fa-sign-in"></i>
                                     </div>
-                                    Blog Single
-                                </div>
+                                        <a href="{{url(env('PASSPORT').'/login')}}">登录</a>
+                                    </div>
                             </a>
                         </div>
                         <div class="col s4">
-                            <a href="error404.html" class="button-link">
+                            <a href="{{url(env('PASSPORT').'/reg')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
-                                        <i class="fa fa-hourglass-half"></i>
+                                        <i class="fa fa-user-plus"></i>
                                     </div>
-                                    404
-                                </div>
+                                        <a href="{{url(env('PASSPORT').'/reg')}}">注册</a>
+                                    </div>
                             </a>
                         </div>
                     </div>
@@ -158,60 +125,8 @@
                                     <div class="icon">
                                         <i class="fa fa-support"></i>
                                     </div>
-                                    Testimonial
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="about-us.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-user"></i>
+                                        收货地址
                                     </div>
-                                    About Us
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="contact.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </div>
-                                    Contact
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s4">
-                            <a href="setting.html" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    Settings
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-sign-in"></i>
-                                    </div>
-                                    <a href="{{url(env('PASSPORT').'/login')}}">登录</a>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col s4">
-                            <a href="" class="button-link">
-                                <div class="menu-link">
-                                    <div class="icon">
-                                        <i class="fa fa-user-plus"></i>
-                                    </div>
-                                    <a href="{{url(env('PASSPORT').'/reg')}}">注册</a>
-                                </div>
                             </a>
                         </div>
                     </div>
@@ -219,87 +134,7 @@
             </div>
         </div>
 
-        {{-- 购物车列表 --}}
-        <div class="menus" id="animatedModal">
-                <div class="close-animatedModal close-icon">
-                    <i class="fa fa-close"></i>
-                </div>
-                <div class="modal-content">
-                    <div class="cart-menu">
-                        <div class="container">
-                            <div class="content">
-                                <div class="cart-1">
-                                </div>
-                                <div class="divider"></div>
-                                <div class="cart-2">
-                                    <div class="row">
-                                        <div class="col s5">
-                                            <img src="/style/img/cart-menu2.png" alt="">
-                                        </div>
-                                        <div class="col s7">
-                                            <h5><a href="">Fashion Men's</a></h5>
-                                        </div>
-                                    </div>
-                                    <div class="row quantity">
-                                        <div class="col s5">
-                                            <h5>Quantity</h5>
-                                        </div>
-                                        <div class="col s7">
-                                            <input value="1" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s5">
-                                            <h5>Price</h5>
-                                        </div>
-                                        <div class="col s7">
-                                            <h5>$20</h5>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col s5">
-                                            <h5>Action</h5>
-                                        </div>
-                                        <div class="col s7">
-                                            <div class="action"><i class="fa fa-trash"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="total">
-                                <div class="row">
-                                    <div class="col s7">
-                                        <h5>Fashion Men's</h5>
-                                    </div>
-                                    <div class="col s5">
-                                        <h5>$21.00</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s7">
-                                        <h5>Fashion Men's</h5>
-                                    </div>
-                                    <div class="col s5">
-                                        <h5>$21.00</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s7">
-                                        <h6>Total</h6>
-                                    </div>
-                                    <div class="col s5">
-                                        <h6>$41.00</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn button-default">Process to Checkout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         @yield('content')
-
         <script src="/style/js/jquery.min.js"></script>
         <script src="/style/js/materialize.min.js"></script>
         <script src="/style/js/owl.carousel.min.js"></script>

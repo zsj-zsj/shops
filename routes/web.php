@@ -21,3 +21,4 @@ Route::post('comment','IndexController@comment')->middleware('user');  //商品�
 Route::get('commentlist','IndexController@commentList');  //商品评论列表
 Route::post('addcart','CartController@addCart');  //加入购物车
 Route::get('cartlist','CartController@cartList')->middleware('user');   //购物车列表
+Route::post('delcart','CartController@delcart');  //删除购物车

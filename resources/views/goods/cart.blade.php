@@ -11,7 +11,7 @@
 			</div>
 			<div class="content">
 				@foreach ($data as $v)
-				<div class="cart-1">
+				<div class="cart-1" cart_id="{{$v->cart_id}}">
 					<div class="row">
 						<div class="col s5">
 							<h5>商品图片</h5>
@@ -46,7 +46,7 @@
 					</div>
 					<div class="row">
 						<div class="col s7">
-							<h5><a href=""><i class="fa fa-trash"></i></a></h5>
+							<h5><a href="javascript:;" id="delcart"><i class="fa fa-trash"></i></a></h5>
 						</div>
 					</div>
 				</div>
@@ -78,4 +78,28 @@
 	</div>
     <!-- end cart -->
 @include('layout.public')
+
+<script src="/style/js/jquery.min.js"></script>
+<script>
+	$(document).on('click','#delcart',function(){
+		var cart_id=$("#delcart").parents('.cart-1').attr('cart_id')
+		$.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        })
+		$.post(
+			"{{url('delcart')}}",
+			{cart_id:cart_id},
+			function(res){
+				if(res.msg==000){
+					alert(res.res)
+					$("#delcart").parents('.cart-1').remove()
+				}
+				location.href="{{url('cartlist')}}"
+			}
+		),'json'
+	})
+</script>
+
 @endsection

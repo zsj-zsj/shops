@@ -17,7 +17,6 @@ class CartController extends Controller
         $buy_num=$request->buy_num;
         $data=[
             'goods_id'=>$goods_id,
-            'is_del'=>1,
             'id'=>$user['id']
         ];
         if($user){
@@ -26,10 +25,10 @@ class CartController extends Controller
             $num=$buy_num+$cartInfo['buy_num'];  //累加的数量
             $maxnum=$buy_num+$cartInfo['buy_num']; //判断库存的数量
             if($maxnum>$goods_num['goods_num']){
-                return $data=['msg'=>222,'res'=>'库存不够'];   
+                return $data=['msg'=>222,'res'=>'购买数量已超过库存'];   
             }else{
                 if($cartInfo){
-                    Cart::where($data)->update(['buy_num'=>$num]);
+                    Cart::where($data)->update(['buy_num'=>$num,'is_del'=>1]);
                     return $data=['msg'=>000,'res'=>'加入购物车成功'];          
                 }else{
                     $data=[
@@ -62,5 +61,13 @@ class CartController extends Controller
             $total+=$v['goods_price']*$v['buy_num'];
         }
         return view('goods.cart',['user'=>$user,'data'=>$data,'total'=>$total]);
+    }
+
+    //删除购物车
+    public function delcart(Request $request)
+    {
+        $cart_id=$request->cart_id;
+        $res=Cart::where(['cart_id'=>$cart_id])->update(['is_del'=>2,'buy_num'=>0]);
+        return $data=['msg'=>'000','res'=>'已取消购物车'];
     }
 }

@@ -120,13 +120,13 @@
                     </div>
                     <div class="row">
                         <div class="col s4">
-                            <a href="testimonial.html" class="button-link">
+                            <a href="{{url('address/index')}}" class="button-link">
                                 <div class="menu-link">
                                     <div class="icon">
                                         <i class="fa fa-support"></i>
                                     </div>
-                                        收货地址
-                                    </div>
+                                    <a href="{{url('address/index')}}">收货地址</a>
+                                </div>
                             </a>
                         </div>
                     </div>

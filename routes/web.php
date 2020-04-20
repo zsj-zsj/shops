@@ -22,3 +22,15 @@ Route::get('commentlist','IndexController@commentList');  //商品评论列表
 Route::post('addcart','CartController@addCart');  //加入购物车
 Route::get('cartlist','CartController@cartList')->middleware('user');   //购物车列表
 Route::post('delcart','CartController@delcart');  //删除购物车
+
+//收货地址
+Route::prefix('/address')->middleware('user')->group(function(){
+    Route::get('index','AddressController@index');
+    Route::get('area','AddressController@area');  //城市信息
+    Route::get('create','AddressController@create');
+    Route::post('create','AddressController@docreate');
+    Route::post('delete','AddressController@delete');
+    Route::get('edit','AddressController@edit');
+    Route::post('update','AddressController@update');
+    Route::get('detailed','AddressController@detailed');
+});

@@ -127,7 +127,7 @@ class AddressController extends Controller
         ];
         $a=Address::where($where)->update(['is_detailed'=>1]);
         $b=Address::where('address_id','=',$id)->update(['is_detailed'=>2]);
-        echo "<script>alert('设置成功');location.href='/address/index';</script>";  
+        echo "<script>alert('设置成功,可以购买商品啦');location.href='/address/index';</script>";  
     }
 
 }

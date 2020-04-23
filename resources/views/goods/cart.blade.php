@@ -9,9 +9,11 @@
 			<div class="pages-head">
 				<h3>购物车列表</h3>
 			</div>
+			<a href="javascript:;"><input type="checkbox" name="1" id="allBox"/> 全选</a>
 			<div class="content">
-				@foreach ($data as $v)
-				<div class="cart-1" cart_id="{{$v->cart_id}}">
+				@foreach ($data as $v)	
+				<div class="cart-1" goods_id="{{$v->goods_id}}">
+					选中去结算<input type="checkbox" name="1" class="box"/>
 					<div class="row">
 						<div class="col s5">
 							<h5>商品图片</h5>
@@ -30,7 +32,7 @@
 					</div>
 					<div class="row">
 						<div class="col s5">
-							<h5>购买数量</h5>
+							<h5>收藏数量</h5>
 						</div>
 						<div class="col s7">
 							{{$v->buy_num}}
@@ -73,7 +75,8 @@
 					</div>
 				</div>
 			</div>
-			<button class="btn button-default">去结算</button>
+
+			<a herf="javascript:;" id="order" class="btn button-default">去结算</a>
 		</div>
 	</div>
     <!-- end cart -->
@@ -81,8 +84,32 @@
 
 <script src="/style/js/jquery.min.js"></script>
 <script>
+	//结算
+	$(document).on('click','#order',function(){
+		var goods_id='';
+        var _box=$('.box:checked');
+        if(_box.length>0){
+            _box.each(function(index){
+			goods_id+=$(this).parents('.cart-1').attr('goods_id')+',';
+			console.log(goods_id)
+        })
+            goods_id=goods_id.substr(0,goods_id.length-1);
+            location.href="{{url('order/index')}}?goods_id="+goods_id;
+        }else{
+            alert('请至少选择一件商品');
+        }
+    })
+
+	//全选
+	$(document).on('click','#allBox',function(){
+        var _this=$(this);
+        var status=_this.prop('checked');
+        $(".box").prop('checked',status);
+    })
+	
+	//删除购物车
 	$(document).on('click','#delcart',function(){
-		var cart_id=$("#delcart").parents('.cart-1').attr('cart_id')
+		var cart_id="{{$v->cart_id ?? ''}}"
 		$.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

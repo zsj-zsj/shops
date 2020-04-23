@@ -34,3 +34,10 @@ Route::prefix('/address')->middleware('user')->group(function(){
     Route::post('update','AddressController@update');
     Route::get('detailed','AddressController@detailed');
 });
+
+//订单
+Route::prefix('/order')->middleware('user')->group(function(){
+    Route::get('index','OrderController@index');  //结算页面
+    Route::get('addorder','OrderController@addorder');  //订单 五表
+    Route::get('alipay','OrderController@alipay'); //支付页面
+});

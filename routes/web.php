@@ -40,4 +40,9 @@ Route::prefix('/order')->middleware('user')->group(function(){
     Route::get('index','OrderController@index');  //结算页面
     Route::get('addorder','OrderController@addorder');  //订单 五表
     Route::get('alipay','OrderController@alipay'); //支付页面
+    Route::get('myorder','OrderController@myOrder'); 
 });
+
+Route::get('pay','PayController@pay')->middleware('user');
+Route::post('notifyurl','PayController@notifyUrl')->middleware('user');
+Route::get('returnurl','PayController@returnUrl')->middleware('user');

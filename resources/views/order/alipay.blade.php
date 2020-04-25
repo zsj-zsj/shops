@@ -12,23 +12,23 @@
 				<div class="cart-1">
 					<div class="row">
 						<div class="col s5">
-							<h5>订单号：<b style="color:red">{{$data->order_no}}</b></h5>
+							<h5>订单号：<b style="color:red">{{$data->order_no ?? ''}}</b></h5>
 						</div>
 						<div class="col s7">
-							<h5>提交时间：<b style="color:red">{{$data->created_at}}</b></h5>
+							<h5>提交时间：<b style="color:red">{{$data->created_at ?? ''}}</b></h5>
 						</div>
 					</div>
 				</div>
 				<div class="cart-1">
 					<div class="row">
 						<div class="col s5">
-							应付：￥<b style="color:red">{{$data->order_count}}</b>元
+							应付：￥<b style="color:red">{{$data->order_count ?? ''}}</b>元
 						</div>
 					</div>
 				</div>
 				<div class="divider"></div>
 		
-				<a class="btn button-default">点击支付</a>
+				<a href="{{url('pay')}}?id={{$data->order_id ?? ''}}" class="btn button-default">点击支付</a>
 		</div>
 	</div>
 @include('layout.public')

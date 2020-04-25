@@ -19,7 +19,7 @@
 					<div class="item">
 						<img src="/style/img/testimonial2.jpg" alt="">
 						<p><i class="fa fa-envelope-o"></i></li></p>
-						<h6><a href="">查看订单</a></h6>
+						<h6><a href="{{url('/order/myorder')}}">查看订单</a></h6>
 					</div>
 					<div class="item">
 						<img src="/style/img/testimonial3.jpg" alt="">

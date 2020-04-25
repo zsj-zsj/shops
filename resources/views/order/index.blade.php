@@ -38,18 +38,18 @@
 				<div class="cart-1">
 					<div class="row">
 						<div class="col s5">
-							<h5>收货人姓名：{{$address->add_name}}</h5>
+							<h5>收货人姓名：{{$address->add_name ?? ''}}</h5>
 						</div>
 						<div class="col s7">
-							<h5>手机号：{{$address->add_mobile}}</h5>
+							<h5>手机号：{{$address->add_mobile ?? ''}}</h5>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col s5">
-							<h5>地址：{{$address->province}}{{$address->city}}{{$address->area}}</h5>
+							<h5>地址：{{$address->province ?? ''}}{{$address->city ?? ''}}{{$address->area ?? ''}}</h5>
 						</div>
 						<div class="col s7">
-							<h5>详细地址：{{$address->detailed}}</h5>
+							<h5>详细地址：{{$address->detailed ?? ''}}</h5>
 						</div>
 					</div>
                 </div>
@@ -61,7 +61,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="{{url('order/addorder')}}?goods_id={{Request()->goods_id}}&address_id={{$address->address_id}}" class="btn button-default">确认结算</a>
+			<a href="{{url('order/addorder')}}?goods_id={{Request()->goods_id}}&address_id={{$address->address_id ?? ''}}" class="btn button-default">确认结算</a>
 		</div>
 	</div>
 @include('layout.public')

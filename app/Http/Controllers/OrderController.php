@@ -40,6 +40,9 @@ class OrderController extends Controller
             'id'=>$user['id']
         ];
         $address=Address::where($detailed)->first();
+        if(!$address){
+            return view('order.index',['user'=>$user,'data'=>$data,'count'=>$count,'address'=>$address]);
+        }
         $address['province']=Area::where('id','=',$address['province'])->value('name');
         $address['city']=Area::where('id','=',$address['city'])->value('name');
         $address['area']=Area::where('id','=',$address['area'])->value('name');
@@ -78,6 +81,9 @@ class OrderController extends Controller
                 throw new \Exception('添加订单失败');
             }
             //订单地址表
+            if(empty($address_id)){
+                throw new \Exception('请先添加收货地址并选择默认收货地址');
+            }
             $address=Address::where('address_id','=',$address_id)->first()->toArray();
             unset($address['is_detailed']);
             unset($address['address_id']);
@@ -141,5 +147,18 @@ class OrderController extends Controller
         $data=Order::where($where)->first();
         $user=User::userInfo();
         return view('order.alipay',['user'=>$user,'data'=>$data]);
+    }
+
+    //订单
+    public function myOrder()
+    {
+        $user=User::userInfo();
+        $where=[
+            'id'=>$user['id'],
+            'pay_status'=>2,
+            'order_status'=>3
+        ];
+        $data=Order::where($where)->get();
+        return view('order/myorder',['user'=>$user,'data'=>$data]);
     }
 }

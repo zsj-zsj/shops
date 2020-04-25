@@ -52,7 +52,7 @@
 				<div class="divider-top"></div>
 				<div class="divider-bottom"></div>
 			</div>
-			
+			<div id="ajax">
 			<div class="row">
 				@foreach ($data as $v)
 				<div class="col s6">
@@ -69,14 +69,26 @@
 				@endforeach
 			</div>
 			
-			<div class="pagination-product">
+			<div class="pagination">
 				<ul>
 					<li class="active">{{$data->appends($query)->links()}}</li>
 				</ul>
 			</div>
 		</div>
 	</div>
+</div>
 	<!-- end product -->
 
 @include('layout.public')
+<script src="/style/js/jquery.min.js"></script>
+<script>
+	$(document).on('click','.pagination a',function(){
+		var url=$(this).attr('href')
+		$.get(url,function(msg){
+			$('#ajax').html(msg)
+		})
+		return false
+	})
+</script>
+
 @endsection

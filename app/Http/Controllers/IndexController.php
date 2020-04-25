@@ -19,6 +19,9 @@ class IndexController extends Controller
         $user=User::userInfo();
         $data=Goods::paginate(4);
         $query=request()->all();
+        if(request()->ajax()){
+            return view('index.goodsajax',['data'=>$data,'user'=>$user]);
+        }
         return view('index.index',['data'=>$data,'query'=>$query,'user'=>$user]);
     }
 
@@ -42,6 +45,9 @@ class IndexController extends Controller
         }
         $data=Goods::orderBy('goods_id','desc')->where($where)->paginate(4);
         $query=request()->all();
+        if(request()->ajax()){
+            return view('index.goodsajax',['data'=>$data,'user'=>$user,'query'=>$query]);
+        }
         return view('goods.search',['user'=>$user,'data'=>$data,'query'=>$query]);
     }
 

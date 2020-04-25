@@ -9,6 +9,7 @@
 			<div class="pages-head">
 				<h3>商品列表</h3>
 			</div>
+			<div id="ajax">
 			<div class="input-field">
                 <form action="{{url('/goodssecrch')}}" method="GET">
                     <input type="text" name="goods_name" value="{{$query['goods_name'] ?? ''}}" placeholder="请搜索需要的商品">
@@ -30,13 +31,25 @@
                 </div>
                 @endforeach
 			</div>	
-			<div class="pagination-product">
+			<div class="pagination">
 				<ul>
                     <li class="active">{{$data->appends($query)->links()}}</li>
 				</ul>
 			</div>
 		</div>
+		</div>
 	</div>
     <!-- end product -->
 @include('layout.public')
+<script src="/style/js/jquery.min.js"></script>
+<script>
+	$(document).on('click','.pagination a',function(){
+		var url=$(this).attr('href')
+		$.get(url,function(msg){
+			$('#ajax').html(msg)
+		})
+		return false
+	})
+</script>
+
 @endsection

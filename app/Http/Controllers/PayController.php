@@ -60,6 +60,8 @@ class PayController extends Controller
 
     public function returnurl()
     {
+        $id=session('id');
+        Order::where('order_id','=',$id)->update(['pay_status'=>2,'order_status'=>3]);
         $sign=base64_decode($_GET['sign']);
         $data=$_GET;
         unset($data['sign']);
@@ -74,12 +76,6 @@ class PayController extends Controller
         $key=openssl_get_publickey($key);
         $res=openssl_verify($str,$sign,$key, OPENSSL_ALGO_SHA256);
         // dd($res);
-        if($res==1){
-            $id=session('id');
-            Order::where('order_id','=',$id)->update(['pay_status'=>2,'order_status'=>3]);
-            return redirect('order/myorder');
-        }else{
-            echo "请勿非法操作";die;
-        }
+        return redirect('order/myorder');
     }
 }

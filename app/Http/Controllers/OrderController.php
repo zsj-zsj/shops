@@ -115,7 +115,7 @@ class OrderController extends Controller
                 'id'=>$user['id'],
                 'is_del'=>1
             ];
-            $cart=Cart::where($cartwhere)->whereIn('shop_cart.goods_id',$goods_id)->update(['is_del'=>2]);
+            $cart=Cart::where($cartwhere)->whereIn('shop_cart.goods_id',$goods_id)->update(['is_del'=>2,'buy_num'=>0]);
             if(empty($cart)){
                 throw new \Exception('购物车修改失败');
             }

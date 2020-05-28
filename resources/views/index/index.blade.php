@@ -69,9 +69,9 @@
 				@endforeach
 			</div>
 			
-			<div class="pagination">
+			<div class="pagination-product">
 				<ul>
-					<li class="active">{{$data->appends($query)->links()}}</li>
+					{{$data->links('vendor.pagination.default')}}
 				</ul>
 			</div>
 		</div>

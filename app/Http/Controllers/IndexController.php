@@ -18,11 +18,10 @@ class IndexController extends Controller
     {
         $user=User::userInfo();
         $data=Goods::paginate(4);
-        $query=request()->all();
         if(request()->ajax()){
             return view('index.goodsajax',['data'=>$data,'user'=>$user]);
         }
-        return view('index.index',['data'=>$data,'query'=>$query,'user'=>$user]);
+        return view('index.index',['data'=>$data,'user'=>$user]);
     }
 
     //商品详情
